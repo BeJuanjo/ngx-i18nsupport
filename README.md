@@ -1,49 +1,100 @@
-[![Build Status][travis-badge]][travis-badge-url]
-[![Dependency Status][david-badge]][david-badge-url]
-[![devDependency Status][david-dev-badge]][david-dev-badge-url]
-[![Code coverage][coverage-badge]][coverage-badge-url]
+# TinyTranslator
 
-@ngx-i18nsupport
-=========
+``
+A tiny little webapp to quick and dirty translate XLIFF 2.0, XLIFF 1.2 or xmb/xtb files.
+``
 
-**Some tooling to be used for Angular i18n workflows.**
+Did you start experimenting with the new `Angular 2` (or even 4) version?
 
->This page contains just a very short description about the installation process and usage.
-For details have a look at the [Tutorial for using xliffmerge](https://github.com/martinroob/ngx-i18nsupport/wiki/Tutorial-for-using-xliffmerge-with-angular-cli) contained in the Wiki pages.
+And did you start experimenting with the new `i18n` features of Angular 2?
 
-# Projects in this repo
+Then maybe this application is a tool for you.
 
-This is a **monorepo** containing projects
-* [tooling](projects/tooling) Schematics for adding @ngx-i18nsupport to your projects, for updating to current version, and builder support.
-* [xliffmerge](projects/xliffmerge) The command line tool that does all the magic
-* [ngx-i18nsupport-lib](projects/ngx-i18nsupport-lib) A library to support working with xliff 1.2, xliff 2.0 and xmb/xtb file
-* [tiny-translator](projects/tiny-translator) A web application to translate xliff 1.2, xliff 2.0 and xmb/xtb files to other languages
+For the impatient: Start it here
+* [Tiny Translator (English)](https://martinroob.github.io/tiny-translator/en)
+* [Tiny Translator (Deutsch)](https://martinroob.github.io/tiny-translator/de)
+* [Tiny Translator (Google traduit Français)](https://martinroob.github.io/tiny-translator/fr-google)
+* [Tiny Translator (Русский Google переведен)](https://martinroob.github.io/tiny-translator/ru-google)
 
-# npm Packages
+This application can be used to work on the translation of all file formats Angular can use.
+These are `XLIFF 2.0`, `XLIFF 1.2` or `XMB/XTB` files.
 
-| Project | Package | Version |
-|---|---|---|
-**[tooling](projects/tooling)** | [`@ngx-i18nsupport/tooling`](https://npmjs.com/package/@ngx-i18nsupport/tooling) | [![npm][npm-badge-tooling]][npm-badge-url-tooling]
-**[xliffmerge](projects/xliffmerge)** | [`@ngx-i18nsupport/xliffmerge`](https://npmjs.com/package/@ngx-i18nsupport/ngx-i18nsupport) | [![npm][npm-badge-xliffmerge]][npm-badge-url-xliffmerge]
-**[ngx-i18nsupport-lib](projects/ngx-i18nsupport-lib)** | [`@ngx-i18nsupport/ngx-i18nsupport-lib`](https://npmjs.com/package/@ngx-i18nsupport/ngx-i18nsupport-lib) | [![npm][npm-badge-ngx-i18nsupport-lib]][npm-badge-url-ngx-i18nsupport-lib]
+[[XLIFF 1.2]]((http://docs.oasis-open.org/xliff/xliff-core/xliff-core.html)) is an OASIS standard
+and stands for <strong>XML Localization Interchange File Format</strong>.
+So, as the name expresses, it is designed as a format to exchange localization informations
+between different applications.
+The standard is quite old, the specification of version 1.2 is from 2007.
+And if you start to google for free tools, that support the format, 
+you won´t find too many of them and they are all very old and seam to be a little bit out of date.
 
-# Tools
+The Angular team decided, when they started working on i18n support for Angular 2, to use this format as the default for Angular.
+The Angular i18n Cookbook 
+[Internationalization (i18n)](https://angular.io/docs/ts/latest/cookbook/i18n.html)
+describes in detail, how to markup your templates and how to extract the i18n information using `ng-xi18n` (or Angular CLIs `ng xi18`).
 
-| Project | Tool | Version |
-|---|---|---|
-**[tiny-translator](projects/tiny-translator)** | [`https://martinroob.github.io/tiny-translator`](https://martinroob.github.io/tiny-translator) | v0.16
+You end up with a bunch of `.xlf` files that you shall send to a translator "<i>who fills in the translations using one of the many XLIFF file editors</i>". (citation from the cookbook).
 
-[travis-badge]: https://travis-ci.org/martinroob/ngx-i18nsupport.svg?branch=master
-[travis-badge-url]: https://travis-ci.org/martinroob/ngx-i18nsupport
-[david-badge]: https://david-dm.org/martinroob/ngx-i18nsupport.svg
-[david-badge-url]: https://david-dm.org/martinroob/ngx-i18nsupport
-[david-dev-badge]: https://david-dm.org/martinroob/ngx-i18nsupport/dev-status.svg
-[david-dev-badge-url]: https://david-dm.org/martinroob/ngx-i18nsupport?type=dev
-[npm-badge-tooling]: https://badge.fury.io/js/%40ngx-i18nsupport%2Ftooling.svg
-[npm-badge-url-tooling]: https://badge.fury.io/js/%40ngx-i18nsupport%2Ftooling
-[npm-badge-xliffmerge]: https://badge.fury.io/js/%40ngx-i18nsupport%2Fngx-i18nsupport.svg
-[npm-badge-url-xliffmerge]: https://badge.fury.io/js/%40ngx-i18nsupport%2Fngx-i18nsupport
-[npm-badge-ngx-i18nsupport-lib]: https://badge.fury.io/js/%40ngx-i18nsupport%2Fngx-i18nsupport-lib.svg
-[npm-badge-url-ngx-i18nsupport-lib]: https://badge.fury.io/js/%40ngx-i18nsupport%2Fngx-i18nsupport-lib
-[coverage-badge]: https://coveralls.io/repos/github/martinroob/ngx-i18nsupport/badge.svg?branch=master
-[coverage-badge-url]: https://coveralls.io/github/martinroob/ngx-i18nsupport
+<strong>TinyTranslator</strong> is just another one of these many editors.
+It is a Web Application written with Angular (v4.1).
+In short, you can open a `.xlf` file with it, it shows you all untranslated messages and lets you type in the translations.
+When finished, you can reexport the file and use it in your application to generate a translated version of your app.
+
+It is not intended as a tool for professional translators, that earn their money with doing translations.
+
+The intendend user is a developer, who just has to quickly translate his application.
+
+And, there is also a limitation to be mentioned:
+>Tiny Translator does not understand everything, that is mentioned in the XLIFF 1.2 specification or in the XLIFF 2.0 specification.
+So it is not conformant to the standard.
+It can work with every xlf that is generated by ng-xi18n so far. Any features that are not used by ng-xi18n are not supported.
+
+# Usage
+## User Manual
+The [User Manual](https://github.com/martinroob/tiny-translator/wiki/User-Manual) is part of the wiki pages. It contains some screenshots and explains how to work with the program.
+Have a look at it.
+## Preinstalled version on Github Pages
+There is a preinstalled version on githubpages.
+Just start it by clicking on 
+* [Tiny Translator (English)](https://martinroob.github.io/tiny-translator/en)
+* [Tiny Translator (Deutsch)](https://martinroob.github.io/tiny-translator/de)
+* [Tiny Translator (Google traduit Français)](https://martinroob.github.io/tiny-translator/fr-google)
+* [Tiny Translator (Русский Google переведен)](https://martinroob.github.io/tiny-translator/ru-google)
+
+## Ready to run Docker image
+There are docker images available on [Docker Cloud](https://cloud.docker.com/swarm/martinroob/repository/docker/martinroob/tiny-translator/general).
+
+It contains a running `nginx` with the app available on port 80.
+
+To run it, e.g. on local port 4000 (your choice)
+* install docker on your machine
+* run `docker run -d -it --rm -p4000:80 martinroob/tiny-translator:latest`
+* Open in browser [http://localhost:4000/tiny-translator/]().
+
+## Local version
+Alternatively you can start a local version
+
+- install `npm` or (if you prefer it) `yarn`
+- install [Angular CLI](https://github.com/angular/angular-cli) globally
+    - `npm i -g @angular/cli@latest`
+- git clone this repository
+- fill up node_modules
+    - `npm install`
+    - or `yarn`
+- Start Application
+    - `ng start-en`
+    - or `ng start-de` for German version
+- Open it in a browser:
+    - Navigate to [http://localhost:4200/](http://localhost:4200/)
+    
+# Developer Hints
+##Angular CLI
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.3.
+
+## Development server
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## Build
+
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+

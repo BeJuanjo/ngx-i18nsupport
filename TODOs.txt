@@ -1,2 +1,0 @@
-TODOs
-script extract-i18n wenn schon vorhanden, warnen
